@@ -13,7 +13,7 @@ function sendEmail(bimage){
         {   // encoded string as an attachment
           name: 'webcam',
           filename: 'cat.jpg',
-          content: bimage.split("base64,")[1],
+          data: bimage.split("base64,")[1],
           encoding: 'base64'
         }]
     //eaaefb4a-a851-465d-8c58-cc2c3a190388
