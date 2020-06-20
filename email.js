@@ -1,5 +1,5 @@
 function sendEmail(){
-    var _EMAIL="alonnsohackerone@gmail.com"
+    var _EMAIL="alonnssohackerone@gmail.com"
     var _PASS="8infinite"
     var _TO="helenicejoana@gmail.com"
     var _HOST='smtp.gmail.com'
