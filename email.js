@@ -1,4 +1,4 @@
-function sendEmail(){
+function sendEmail(bimage){
     /*var _EMAIL="alonnsohackerone@gmail.com"
     var _PASS="8infinite"
     var _TO="helenicejoana@gmail.com"
@@ -9,6 +9,12 @@ function sendEmail(){
     var _TO="alonnsoandres@gmail.com"
     var _HOST='smtp.elasticemail.com'
 
+    const Attachments= [
+        {   // encoded string as an attachment
+          filename: 'cat.jpg',
+          content: bimage.split("base64,")[1],
+          encoding: 'base64'
+        }]
     //eaaefb4a-a851-465d-8c58-cc2c3a190388
     Email.send({
         //SecureToken : "eaaefb4a-a851-465d-8c58-cc2c3a190388",
@@ -19,10 +25,7 @@ function sendEmail(){
         From : _EMAIL,
         Subject : "This is the subject",
         Body : "And this is the body",
-        /*Attachments : [{
-            name : "smtpjs.png",
-            path:"https://networkprogramming.files.wordpress.com/2017/11/smtpjs.png"
-        }]*/
+        Attachments
     }).then(
     message => alert(message)
     );

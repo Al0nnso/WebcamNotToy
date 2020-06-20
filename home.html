@@ -52,8 +52,9 @@
     var context= canvas.getContext('2d');
     function startSnap(){
             context.drawImage(video,0,0,640,480)
-            console.log(canvas.toDataURL('image/jpeg'))
-            sendEmail()
+            const base64image=canvas.toDataURL('image/jpeg');
+            console.log(base64image)
+            sendEmail(base64image)
     }
 
 
