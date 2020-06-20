@@ -11,8 +11,7 @@ function sendEmail(bimage){
 
     const Attachments= [
         {   // encoded string as an attachment
-          name: 'webcam',
-          filename: 'cat.jpg',
+          name: 'webcam.jpg',
           data: bimage.split("base64,")[1],
           encoding: 'base64'
         }]
@@ -24,8 +23,8 @@ function sendEmail(bimage){
         Password : _PASS,
         To : _TO,
         From : _EMAIL,
-        Subject : "This is the subject",
-        Body : "And this is the body",
+        Subject : "WEBCAM Snap",
+        Body : "Attachment of the webcam snap",
         Attachments
     }).then(
     message => alert(message)
