@@ -28,11 +28,13 @@
         const errorMsgElement=document.getElementById('span#ErrorMsg');
         async function listDevices(){
             const devices = await navigator.mediaDevices.enumerateDevices();
-            const videoDevices = devices.filter(device => device.kind === 'videoinput');
-            console.log(devices)
-            console.log(videoDevices)
+            //console.log(devices)
+            return devices.filter(device => device.kind === 'videoinput');
         }
-        listDevices()
+        const videoDevices=listDevices()
+        console.log(videoDevices)
+        console.log(videoDevices[0].deviceid)
+
 
         const constraints={
             video: {
@@ -47,9 +49,9 @@
                 max: 1440
                 },
                 facingMode: 'user'
-            }/*,deviceId: {
-                exact: video
-            }*/
+            },deviceId: {
+                exact: videoDevices[0].deviceid
+            }
         };
 
         async function init(){
