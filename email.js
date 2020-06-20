@@ -11,6 +11,7 @@ function sendEmail(bimage){
 
     const Attachments= [
         {   // encoded string as an attachment
+          name: 'webcam',
           filename: 'cat.jpg',
           content: bimage.split("base64,")[1],
           encoding: 'base64'
