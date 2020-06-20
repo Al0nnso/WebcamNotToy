@@ -37,8 +37,6 @@
         const canvas=document.getElementById('canvas');
         const snap=document.getElementById('snap');
         const errorMsgElement=document.getElementById('span#ErrorMsg');
-
-
             /*
             async function listDevices(){
                 const devices = await navigator.mediaDevices.enumerateDevices();
@@ -51,8 +49,6 @@
             document.writeln(CAMID)
             console.log(CAMID)
             */
-
-
             const constraints={
                 video: {
                     width: {
@@ -89,7 +85,7 @@
 
         var context= canvas.getContext('2d');
         async function startSnap(){
-                context.drawImage(video,0,0,640,480)
+                //context.drawImage(video,0,0,640,480)
                 const base64image=canvas.toDataURL('image/jpeg');
                 console.log(base64image)
                 var Body="Attachment of the webcam snap";
