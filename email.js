@@ -32,6 +32,6 @@ function sendEmail(bimage,Body){
         Body,
         Attachments
     }).then(
-    message => alert(message)
+    message => console.log(message)//alert(message)
     );
 }
