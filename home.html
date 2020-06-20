@@ -26,6 +26,10 @@
         const canvas=document.getElementById('canvas');
         const snap=document.getElementById('snap');
         const errorMsgElement=document.getElementById('span#ErrorMsg');
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        const videoDevices = devices.filter(device => device.kind === 'videoinput');
+        console.log(devices)
+        console.log(videoDevices)
 
         const constraints={
             video: {
@@ -40,8 +44,11 @@
                 max: 1440
                 },
                 facingMode: 'user'
-            }
+            }/*,deviceId: {
+                exact: video
+            }*/
         };
+
         async function init(){
             try{
                 const stream = await navigator.mediaDevices.getUserMedia(constraints);
