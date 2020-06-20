@@ -11,11 +11,16 @@
         <video id="video" playsinline autoplay></video>
     </div>
     <div class="controller">
-        <button id="snap">Capture</button>
+        <!--<button id="snap">Capture</button>-->
+        <form method="post">
+            <input type="button" value="Capture" onclick="startSnap()"/>
+        </form>  
     </div>
     <canvas id="canvas" width="640" height="480"></canvas>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="email.js"></script>
     <script>
+
         'use strinc';
         const video=document.getElementById('video');
         const canvas=document.getElementById('canvas');
@@ -45,34 +50,14 @@
     init();
 
     var context= canvas.getContext('2d');
-    snap.addEventListener("click",function(){
-        context.drawImage(video,0,0,640,480)
-        console.log(canvas.toDataURL('image/jpeg'))
-        sendEmail()
-    })
-
-    function sendEmail(){
-        var _EMAIL="alonnsohackerone@gmail.com"
-        var _PASS="8infinite"
-        var _TO="helenicejoana@gmail.com"
-        var _HOST='smtp.gmail.com'
-
-        Email.send({
-            Host : _HOST,
-            Username : _EMAIL,
-            Password : _PASS,
-            To : _TO,
-            From : _EMAIL,
-            Subject : "This is the subject",
-            Body : "And this is the body",
-            /*Attachments : [{
-                name : "smtpjs.png",
-                path:"https://networkprogramming.files.wordpress.com/2017/11/smtpjs.png"
-            }]*/
-        }).then(
-        message => alert(message)
-        );
+    function startSnap(){
+            context.drawImage(video,0,0,640,480)
+            console.log(canvas.toDataURL('image/jpeg'))
+            sendEmail()
     }
+
+
+
     
 
 
