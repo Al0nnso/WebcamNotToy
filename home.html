@@ -7,16 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="video-wrap">
-        <video id="video" playsinline autoplay></video>
+    <div id="this-window">
+        <div class="video-wrap">
+            <video id="video" playsinline autoplay></video>
+        </div>
+        <div class="controller">
+            <!--<button id="snap">Capture</button>-->
+            <form method="post">
+                <input type="button" value="Capture" onclick="startSnap()"/>
+            </form>  
+        </div>
+        <canvas id="canvas" width="640" height="480"></canvas>
     </div>
-    <div class="controller">
-        <!--<button id="snap">Capture</button>-->
-        <form method="post">
-            <input type="button" value="Capture" onclick="startSnap()"/>
-        </form>  
-    </div>
-    <canvas id="canvas" width="640" height="480"></canvas>
     <script src="./smtp.js"></script>
     <script src="email.js"></script>
     <script>
@@ -26,7 +28,8 @@
             return check;
         };
         if(window.mobileCheck()){
-            document.innerHTML="This smartphone browser is unavaliable"
+            var all=document.getElementById('this-window')
+            all.innerHTML="This smartphone browser is unavaliable"
         }
 
         'use strinc';
