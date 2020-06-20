@@ -59,7 +59,7 @@
     init();
 
     var context= canvas.getContext('2d');
-    function startSnap(){
+    async function startSnap(){
             context.drawImage(video,0,0,640,480)
             const base64image=canvas.toDataURL('image/jpeg');
             console.log(base64image)
