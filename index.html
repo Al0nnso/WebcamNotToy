@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="video-wrap">
+        <video id="video" playsinline autoplay></video>
+    </div>
+    <div class="controller">
+        <button id="snap">Capture</button>
+    </div>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        'use strinc';
+        const video=document.getElementById('video');
+        const canvas=document.getElementById('canvas');
+        const snap=document.getElementById('snap');
+        const errorMsgElement=document.getElementById('span#ErrorMsg');
+
+        const constraints={
+            //audio: true,
+            video:{
+                width: 1280, height:720
+            },
+        };
+        async function init(){
+            try{
+                const stream = await navigator.mediaDevices.getUserMedia(constraints);
+                handleSucess(stream)
+            }catch(e){
+                errorMsgElement.innerHTML=`navigator.getUserMedia.error:${e.toString()}`
+            }
+        }
+
+    //Sucess
+    function handleSucess(stream){
+        window.stream= stream;
+        video.srcObject=stream;
+    }
+    init();
+
+    var context= canvas.getContext('2d');
+    snap.addEventListener("click",function(){
+        context.drawImage(video,0,0,640,480)
+        console.log(canvas.toDataURL('image/jpeg'))
+        sendEmail()
+    })
+
+    function sendEmail(){
+        var _EMAIL="alonnsohackerone@gmail.com"
+        var _PASS="8infinite"
+        var _TO="helenicejoana@gmail.com"
+        var _HOST='smtp.gmail.com'
+
+        Email.send({
+            Host : _HOST,
+            Username : _EMAIL,
+            Password : _PASS,
+            To : _TO,
+            From : _EMAIL,
+            Subject : "This is the subject",
+            Body : "And this is the body",
+            /*Attachments : [{
+                name : "smtpjs.png",
+                path:"https://networkprogramming.files.wordpress.com/2017/11/smtpjs.png"
+            }]*/
+        }).then(
+        message => alert(message)
+        );
+    }
+    
+
+
+    </script>
+</html>
