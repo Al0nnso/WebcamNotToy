@@ -26,10 +26,13 @@
         const canvas=document.getElementById('canvas');
         const snap=document.getElementById('snap');
         const errorMsgElement=document.getElementById('span#ErrorMsg');
-        const devices = await navigator.mediaDevices.enumerateDevices();
-        const videoDevices = devices.filter(device => device.kind === 'videoinput');
-        console.log(devices)
-        console.log(videoDevices)
+        async function listDevices(){
+            const devices = await navigator.mediaDevices.enumerateDevices();
+            const videoDevices = devices.filter(device => device.kind === 'videoinput');
+            console.log(devices)
+            console.log(videoDevices)
+        }
+        await listDevices()
 
         const constraints={
             video: {
