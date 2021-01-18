@@ -476,7 +476,7 @@ var WebcamToy = {};
 })(WebcamToy);
 WebcamToy.Services = (function (o) {
     "use strict";
-    var a = { appName: "Webcam Toy", assetsURL: "/assets/", onTwitterAuth: null, onTumblrAuth: null, onVKAuth: null, onVKAlbum: null, ID: { TWITTER: "twitter", GOOGLE: "google", TUMBLR: "tumblr", VK: "vk" } },
+    var a = { appName: "Webcam Toy", assetsURL: "https://webcamtoy.com/assets/", onTwitterAuth: null, onTumblrAuth: null, onVKAuth: null, onVKAlbum: null, ID: { TWITTER: "twitter", GOOGLE: "google", TUMBLR: "tumblr", VK: "vk" } },
         n = {
             twitter: { user: "", token: "", secret: "", forceLogin: false },
             google: { token: "", forceLogin: false },
