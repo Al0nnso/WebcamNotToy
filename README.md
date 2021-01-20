@@ -3,7 +3,7 @@
 
 <h1 align="center">
 <br>
-  <img src="/docs/logo.png" alt="Webcam Not a Toy" width="150">
+  <img src="/docs/logo.png" alt="Webcam Not a Toy" width="200">
 </h1>
 
 <p align="center">A webcamtoy website phishing to send photos in email</p>
