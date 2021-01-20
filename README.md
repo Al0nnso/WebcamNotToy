@@ -9,16 +9,16 @@
 <p align="center">A webcamtoy website phishing to send photos in email</p>
 
 <p align="center">
-  <img src="/docs/page-1.png" width=400 title="Login">
-  <img src="/docs/page-4.png" width=350 title="Login">
+  <img src="/docs/page-1.png" width=50% title="Login">
+  <img src="/docs/page-4.png" width=43% title="Login">
 </p>
 <br>
 
 ## photo --> your email
 
 <p align="center">
-  <img src="/docs/page-2.png" width=400 title="Login">
-  <img src="/docs/page-3.png" width=370 title="Login">
+  <img src="/docs/page-2.png" width=50% title="Login">
+  <img src="/docs/page-3.png" width=47% title="Login">
 </p>
 
 ## Features
