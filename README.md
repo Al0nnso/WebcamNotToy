@@ -26,8 +26,8 @@
 - Send Webcam Photo by email after shoot
 
 ## Email API
-Create an Account in [ElasticEmail](https://elasticemail.com/) ( IS FREE )
-Set creadentials of the [smtp.js](https://smtpjs.com/) library
+- Create an Account in [ElasticEmail](https://elasticemail.com/) ( IS FREE )
+- Set creadentials of the [smtp.js](https://smtpjs.com/) library  
 ```js
 var _EMAIL="your_elastic_email@gmail.com"
 var _PASS="your_elastic_api_key"
