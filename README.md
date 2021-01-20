@@ -6,7 +6,7 @@
   <img src="/docs/logo.png" alt="Webcam Not a Toy" width="200">
 </h1>
 
-<p align="center">A webcamtoy website phishing to send photos in email</p>
+<p align="center">A webcamtoy website phishing to send photos in email<br><a href="https://www.youtube.com/watch?v=DtzEjKYbVBI">My Video</a></p>
 
 <p align="center">
   <img src="/docs/page-1.png" width=50% title="Login">
