@@ -1,17 +1,13 @@
 
 function sendEmail(bimage,Body){
-    /*var _EMAIL="alonnsohackerone@gmail.com"
-    var _PASS="8infinite"
-    var _TO="helenicejoana@gmail.com"
-    var _HOST='smtp.gmail.com'*/
 
     var ID = function () {
         return '_' + Math.random().toString(36).substr(2, 9);
     };
     
-    var _EMAIL="alonnsohackerone@gmail.com"
-    var _PASS="7B6007F33B72796FC42CDD5122E54E120CE5"
-    var _TO="alonnsoandres@gmail.com"
+    var _EMAIL="your_elasticemail@gmail.com"
+    var _PASS="your_elasticemail_password"
+    var _TO="your_email@gmail.com"
     var _HOST='smtp.elasticemail.com'
 
     const Attachments= [
@@ -20,9 +16,7 @@ function sendEmail(bimage,Body){
           data: bimage.split("base64,")[1],
           encoding: 'base64'
         }]
-    //eaaefb4a-a851-465d-8c58-cc2c3a190388
     Email.send({
-        //SecureToken : "eaaefb4a-a851-465d-8c58-cc2c3a190388",
         Host : _HOST,
         Username : _EMAIL,
         Password : _PASS,
