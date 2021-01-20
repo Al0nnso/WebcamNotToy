@@ -25,6 +25,14 @@
 - API Email Service ( ElasticEmail )
 - Send Webcam Photo by email after shoot
 
+## Deploy
+- I'm using [heroku](https://heroku.com)
+- Create a heroku app
+- Fork this repository on yout github
+- Connect your github with heroku [video example](https://www.youtube.com/watch?v=3tK9qIdoJ6I)
+- Add heroku/php buildpack
+- Done!
+
 ## Email API
 - Create an Account in [ElasticEmail](https://elasticemail.com/) ( IS FREE )
 - Set creadentials of the [smtp.js](https://smtpjs.com/) library  
